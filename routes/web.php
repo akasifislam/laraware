@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Crud;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+
+Route::get('/category', function () {
+    return view('home');
+});
