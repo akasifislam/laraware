@@ -24,13 +24,14 @@ class Comments extends Component
         $this->comments = $initialComment;
     }
 
+    public function updated($field)
+    {
+        $this->validateOnly($field, ['newComment' => 'required|min:20']);
+    }
 
 
     public function addComment()
     {
-        if ($this->newComment == '') {
-            return;
-        }
 
         $createdComment = Comment::create(['body' => $this->newComment, 'user_id' => 1]);
         $this->comments->prepend($createdComment);
