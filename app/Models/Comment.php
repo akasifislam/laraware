@@ -12,7 +12,7 @@ class Comment extends Model
     protected $guarded = ['id'];
 
 
-    public function creator()
+    public function postutkarok()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
