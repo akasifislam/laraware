@@ -2,6 +2,15 @@
         <div class="w-8/12">
             <h1 class="my-10 text-3xl">comments</h1>
             @error('newComment') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+            
+            <div>
+                @if (session()->has('message'))
+                    <div class="p-3 text-green-700 bg-green-300 rounded-md shadow-sm">
+                        {{ session('message') }}
+                    </div>
+                @endif
+            </div>
+
             <form class="my-4 flex" wire:submit.prevent="addComment">
                 <textarea type="text" wire:model.debounce.500ms="newComment" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="what's in your mind"></textarea>
                
