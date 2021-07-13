@@ -11,8 +11,13 @@
                 @endif
             </div>
 
+            <section>
+                {{ $image }}
+                <input type="file" id="image"  wire:change="$emit('fileChoosen')">
+            </section>
+
             <form class="my-4 flex" wire:submit.prevent="addComment">
-                <textarea type="text" wire:model.debounce.500ms="newComment" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="what's in your mind"></textarea>
+                <textarea type="text" rows="8" wire:model.debounce.500ms="newComment" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="what's in your mind"></textarea>
                
 
                 <div class="py-2">
@@ -34,3 +39,17 @@
         {{ $comments->links() }}
     </div>
 </div>
+
+
+<script>
+    Livewire.on('fileChoosen', () => {
+        let inputField = document.getElementById('image')
+        let file = inputField.files[0]
+
+        let reader = new FileReader()
+        reader.onloadend= () => {
+            Livewire.emit('fileUpload',reader.result)
+        }
+        reader.readAsDataURL(file)
+    })
+</script>

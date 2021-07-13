@@ -6,6 +6,7 @@ use App\Models\Comment;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 
 class Comments extends Component
 {
@@ -15,6 +16,15 @@ class Comments extends Component
 
     public $newComment;
 
+    public $image;
+
+    protected $listeners = ['fileUpload' => 'handleFileUpload'];
+
+
+    public function handleFileUpload($image)
+    {
+        dd($image);
+    }
 
 
     public function updated($field)

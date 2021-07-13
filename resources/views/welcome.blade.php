@@ -9,6 +9,7 @@
         integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <livewire:styles />
+    <livewire:scripts />
     <title>Document</title>
 </head>
 <body>
@@ -26,6 +27,6 @@
 
 
 
-    <livewire:scripts />
+    
 </body>
 </html>
