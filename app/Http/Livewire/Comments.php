@@ -21,9 +21,9 @@ class Comments extends Component
     protected $listeners = ['fileUpload' => 'handleFileUpload'];
 
 
-    public function handleFileUpload($image)
+    public function handleFileUpload($imageData)
     {
-        dd($image);
+        $this->image = $imageData;
     }
 
 

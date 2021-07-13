@@ -12,7 +12,9 @@
             </div>
 
             <section>
-                {{ $image }}
+                @if ($image)
+                    <img src="{{ $image }}" alt="" width="300">
+                @endif
                 <input type="file" id="image"  wire:change="$emit('fileChoosen')">
             </section>
 
@@ -43,13 +45,14 @@
 
 <script>
     Livewire.on('fileChoosen', () => {
-        let inputField = document.getElementById('image')
-        let file = inputField.files[0]
 
-        let reader = new FileReader()
-        reader.onloadend= () => {
-            Livewire.emit('fileUpload',reader.result)
+        let inputField = document.getElementById("image");
+        let file = inputField.files[0]
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            window.Livewire.emit('fileUpload',reader.result)
         }
-        reader.readAsDataURL(file)
+
+        reader.readAsDataURL(file);
     })
 </script>
