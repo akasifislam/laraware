@@ -35,6 +35,9 @@
                     </div>
                     <i  wire:click="remove({{ $comment->id }})" class="fas fa-times text-red-200 hover:text-red-600 hover:animate-bounce cursor-pointer"></i> 
                 </div>
+                @if ($comment->image)
+                <img src="{{'storage/'. $comment->image }}" alt="aaaa">
+                @endif
                 <p class="text-gray-800"> {{ $comment->body }} </p>
             </div>
         @endforeach
