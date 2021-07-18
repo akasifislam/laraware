@@ -13,6 +13,7 @@
     <title>Document</title>
 </head>
 <body>
+    <livewire:assignment/>
     <livewire:comments/>
     
 
