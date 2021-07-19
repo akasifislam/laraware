@@ -7,8 +7,10 @@ use Livewire\Component;
 class Assignment extends Component
 {
     public $selectedCountry = null;
-    public $selectedPlayer= null;
-    public $sections = null;
+    public $players = null;
+
+
+    // public $selectedPlayer= null;
 
 
 
@@ -21,6 +23,6 @@ class Assignment extends Component
 
     public function updatedSelectedCountry($country_id)
     {
-        $this->sections = Player::where('country_id',$country_id)->get();
+        $this->players = Player::where('country_id',$country_id)->get();
     }
 }
